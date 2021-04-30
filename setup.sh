@@ -85,7 +85,7 @@ sed -e 's|<|_|g; s|>|_|g; s|:|_|g; s|"|_|g; s|/|_|g; s|\\|_|g; s/|/_/g; s|?|_|g;
 #download xmltv file (xmltv.sh) to filename $xmltvfilename - replace old time with new time
 xmltvfilename="${workdir}/${name}.xml"
 
-printf -- "\n${TICK} Downloading ${Green}xmltv.sh${COL_NC} from Github\n";
+printf -- "\n${TICK} Downloading ${Green}timeshift.sh${COL_NC} from Github\n";
 wget -O ${installdir}/timeshift.sh "https://raw.githubusercontent.com/meulk/timeshift/main/timeshift.sh"
 sed -i "s|\\&|$url|" "${installdir}/timeshift.sh"
 sed -i "s|dddddd|$xmltvfilename|; s|ssssss|$source|" "${installdir}/timeshift.sh"
