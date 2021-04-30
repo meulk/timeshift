@@ -48,7 +48,7 @@ if [ ! -d "${installdir}" ]; then
   mkdir -p "${installdir}" 
 fi
 
-printf -- "This script will fix EPG offset issue for IPTV i.e. if your EPG is ahead or behind and showing wrong program information.\n";
+printf -- "This script will fix EPG offset issue for IPTV i.e. if your EPG is ahead or behind and showing wrong program information.\n\n";
 sleep 2
 
 count=$(ls -d ${epgimport}/*jmx.*.sources.xml* | wc -l)
@@ -85,13 +85,13 @@ sed -e 's|<|_|g; s|>|_|g; s|:|_|g; s|"|_|g; s|/|_|g; s|\\|_|g; s/|/_/g; s|?|_|g;
 #download (timeshift.sh) to filename $xmltvfilename - replace old time with new time
 xmltvfilename="${workdir}/${name}.xml"
 
-printf -- "\n${TICK} Downloading ${Green}timeshift.sh${COL_NC} from Github\n";
+printf -- "\n${TICK} Downloading ${Green}timeshift.sh${COL_NC} from Github\n\n";
 wget -O ${installdir}/timeshift.sh "https://raw.githubusercontent.com/meulk/timeshift/main/timeshift.sh"
 sed -i "s|\\&|$url|" "${installdir}/timeshift.sh"
 sed -i "s|dddddd|$xmltvfilename|; s|ssssss|$source|" "${installdir}/timeshift.sh"
 chmod 755 ${installdir}/timeshift.sh
 
-printf -- "\n${TICK} Downloading ${Green}uninstall.sh${COL_NC} from Github\n";
+printf -- "\n${TICK} Downloading ${Green}uninstall.sh${COL_NC} from Github\n\n";
 wget -O ${installdir}/uninstall.sh "https://raw.githubusercontent.com/meulk/timeshift/main/uninstall.sh"
 sed -i "s|dddddd|$xmltvfilename|; s|ssssss|$source|" "${installdir}/uninstall.sh"
 chmod 755 ${installdir}/uninstall.sh
