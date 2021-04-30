@@ -86,10 +86,10 @@ sed -e 's|<|_|g; s|>|_|g; s|:|_|g; s|"|_|g; s|/|_|g; s|\\|_|g; s/|/_/g; s|?|_|g;
 xmltvfilename="${workdir}/${name}.xml"
 
 printf -- "\n${TICK} Downloading ${Green}xmltv.sh${COL_NC} from Github\n";
-wget -O ${installdir}/xmltv.sh "https://raw.githubusercontent.com/meulk/timeshift/main/timeshift.sh"
+wget -O ${installdir}/timeshift.sh "https://raw.githubusercontent.com/meulk/timeshift/main/timeshift.sh"
 sed -i "s|\\&|$url|" "${installdir}/timeshift.sh"
 sed -i "s|dddddd|$xmltvfilename|; s|ssssss|$source|" "${installdir}/timeshift.sh"
-chmod 755 ${installdir}/xmltv.sh
+chmod 755 ${installdir}/timeshift.sh
 
 printf -- "\n${TICK} Downloading ${Green}uninstall.sh${COL_NC} from Github\n";
 wget -O ${installdir}/uninstall.sh "https://raw.githubusercontent.com/meulk/timeshift/main/uninstall.sh"
