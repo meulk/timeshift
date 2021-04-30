@@ -28,7 +28,7 @@ sed -i "s|\\&|$url|" $source
 crontab -l | grep -v "15 08 * * * /bin/sh /usr/script/timeshift.sh" | crontab -
 
 # Removing script
-rm ${installdir}/xmltv.sh
+rm ${installdir}/timeshift.sh
 
 printf -- "\n${TICK} Scripts and crontab successfully uninstalled and source file restored\n";
 rm ${installdir}/uninstall.sh
