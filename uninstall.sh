@@ -14,7 +14,7 @@ printf -- "${Yellow}Uninstalling Timeshift scripts${COL_NC}\n";
 installdir="/usr/script"
 
 xmltvfilename="dddddd"
-url=$(grep -o 'url=".*$' ${installdir}/timeshift.sh | cut -c6- | cut -f 1 -d '"')
+url=$(grep -o 'url=".*$' ${installdir}/xmltv.sh | cut -c6- | cut -f 1 -d '"')
 printf -- "\n$url\n";
 source="ssssss"
 
@@ -25,10 +25,10 @@ sed -i "s|$xmltvfilename.gz|\\&|" $source
 sed -i "s|\\&|$url|" $source
 
 # Removing Cron
-crontab -l | grep -v "15 08 * * * /bin/sh /usr/script/timeshift.sh" | crontab -
+crontab -l | grep -v "15 08 * * * /bin/sh /usr/script/xmltv.sh" | crontab -
 
 # Removing script
-rm ${installdir}/timeshift.sh
+rm ${installdir}/xmltv.sh
 
 printf -- "\n${TICK} Scripts and crontab successfully uninstalled and source file restored\n";
 rm ${installdir}/uninstall.sh
