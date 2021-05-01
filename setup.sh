@@ -82,14 +82,14 @@ url=$(grep -o 'http.*$' ${source} | cut -f 1 -d ']')
 name=$(grep -o 'catname=.*$' ${source} | cut -c10- | cut -f 1 -d '"' | \
 sed -e 's|<|_|g; s|>|_|g; s|:|_|g; s|"|_|g; s|/|_|g; s|\\|_|g; s/|/_/g; s|?|_|g; s|*|_|g; s| |_|g')
 
-#download (timeshift.sh) to filename $xmltvfilename - replace old time with new time
+#download (xmltv.sh) to filename $xmltvfilename - replace old time with new time
 xmltvfilename="${workdir}/${name}.xml"
 
-printf -- "\n${TICK} Downloading ${Green}timeshift.sh${COL_NC} from Github\n\n";
-wget -O ${installdir}/timeshift.sh "https://raw.githubusercontent.com/meulk/timeshift/main/timeshift.sh"
+printf -- "\n${TICK} Downloading ${Green}xmltv.sh${COL_NC} from Github\n\n";
+wget -O ${installdir}/xmltv.sh "https://raw.githubusercontent.com/meulk/timeshift/main/xmltv.sh"
 sed -i "s|\\&|$url|" "${installdir}/timeshift.sh"
-sed -i "s|dddddd|$xmltvfilename|; s|ssssss|$source|" "${installdir}/timeshift.sh"
-chmod 755 ${installdir}/timeshift.sh
+sed -i "s|dddddd|$xmltvfilename|; s|ssssss|$source|" "${installdir}/xmltv.sh"
+chmod 755 ${installdir}/xmltv.sh
 
 printf -- "\n${TICK} Downloading ${Green}uninstall.sh${COL_NC} from Github\n\n";
 wget -O ${installdir}/uninstall.sh "https://raw.githubusercontent.com/meulk/timeshift/main/uninstall.sh"
@@ -99,7 +99,7 @@ chmod 755 ${installdir}/uninstall.sh
 #stop cron error
 touch /etc/cron/crontabs/root
 #Add cronjob to run script at 8:15am
-crontab -l | { cat; echo "15 08 * * * /bin/sh /usr/script/timeshift.sh"; } | crontab -
+crontab -l | { cat; echo "15 08 * * * /bin/sh /usr/script/xmltv.sh"; } | crontab -
 printf -- "\n${TICK} Daily cron added to run script daily at 08:15am\n\n";
 sleep 2
 
@@ -114,7 +114,7 @@ printf -- "\n\nXML file HHMM is currently ${Red}$HHMM\n${COL_NC}";
 sleep 2
 
 if [ "$HHMM" = "+0000" ]; then
-   sh ${installdir}/timeshift.sh
+   sh ${installdir}/xmltv.sh
 
 else
 printf -- "\n${CROSS} ERROR: Script has been installed though it won't work until you follow one more step manually. Please make a note of following text\n";
