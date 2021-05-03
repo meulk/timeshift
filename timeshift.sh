@@ -2,7 +2,7 @@
 #
 # Timeshift v2.0
 
-# Regular Colors
+# Regular Colours
 Red="\e[0;31m"          # Red
 Green="\e[0;32m"        # Green
 Yellow="\e[0;33m"       # Yellow
@@ -15,7 +15,6 @@ Blink="\e[5m"           #Blinking
 Underlined="\e[4m"      #Underlined
 Reversed="\e[7m"        #Inverted
 
-## Reset
 COL_NC="\e[0m"       # Text Reset
 
 TICK="[${Green}✓${COL_NC}]"
@@ -31,7 +30,6 @@ url="&"
 time=$OFFSET
 source="ssssss"
 
-#clear
 #Check on first run if XML file exists. It will be gzipped after this so wont exist on second run.
 if [ ! -f "$xmltvfilename" ]; then
     printf -- "\n${TICK} Downloading new EPG data...${COL_NC}\n\n";
@@ -52,10 +50,7 @@ clock=$(date '+%H:%M:%S:')
 printf -- "\n$clock ${Cyan}${Blink}CORRECTING TIME. PLEASE WAIT, IT COULD TAKE BETWEEN 10-50 MINUTES SO BE PATIENT...${COL_NC}\n"
 
 sed -i "/+0000/ s//$time/g" ${xmltvfilename}
-
 gzip -f  ${xmltvfilename} > ${xmltvfilename}.gz
-
-#replace source - double quotes required for sed to convert variables. 
 sed -i "s|$url|$xmltvfilename.gz|g" $source
 clock1=$(date '+%H:%M:%S:')
 
