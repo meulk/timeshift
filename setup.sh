@@ -3,7 +3,7 @@
 # Fix EPG times
 # Timeshift Setup v2.0
 
-# Regular Colors
+# Regular Colours
 Red="\e[0;31m"          # Red
 Green="\e[0;32m"        # Green
 Yellow="\e[0;33m"       # Yellow
@@ -82,7 +82,6 @@ url=$(grep -o 'http.*$' ${source} | cut -f 1 -d ']')
 name=$(grep -o 'catname=.*$' ${source} | cut -c10- | cut -f 1 -d '"' | \
 sed -e 's|<|_|g; s|>|_|g; s|:|_|g; s|"|_|g; s|/|_|g; s|\\|_|g; s/|/_/g; s|?|_|g; s|*|_|g; s| |_|g')
 
-#download (xmltv.sh) to filename $xmltvfilename - replace old time with new time
 xmltvfilename="${workdir}/${name}.xml"
 
 printf -- "\n${TICK} Downloading ${Green}timeshift.sh${COL_NC} from Github\n\n";
