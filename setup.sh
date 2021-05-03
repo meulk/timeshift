@@ -87,7 +87,7 @@ xmltvfilename="${workdir}/${name}.xml"
 
 printf -- "\n${TICK} Downloading ${Green}xmltv.sh${COL_NC} from Github\n\n";
 wget -O ${installdir}/xmltv.sh "https://raw.githubusercontent.com/meulk/timeshift/main/xmltv.sh"
-sed -i "s|\\&|$url|" "${installdir}/timeshift.sh"
+sed -i "s|\\&|$url|" "${installdir}/xmltv.sh"
 sed -i "s|dddddd|$xmltvfilename|; s|ssssss|$source|" "${installdir}/xmltv.sh"
 chmod 755 ${installdir}/xmltv.sh
 
