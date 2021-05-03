@@ -1,10 +1,9 @@
 #!/bin/bash
 #
 # Uninstall xmltv Timeshift v2.0
-## Reset
-COL_NC="\e[0m"       # Text Reset
+#
 
-# Regular Colors
+COL_NC="\e[0m"       # Text Reset
 Yellow="\e[0;33m"       # Yellow
 
 clear
