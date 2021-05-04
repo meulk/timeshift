@@ -15,5 +15,6 @@ fi
 
 printf -- "\n${TICK} Downloading ${Green}timeshift.xml${COL_NC} from Github\n";
 wget -O ${ppaneldir}/timeshift.xml "https://raw.githubusercontent.com/meulk/timeshift/main/timeshift.xml"
-
+rm /tmp/ppsetup.sh
+printf -- "\n";
 exit 0;
