@@ -2,6 +2,9 @@
 #
 # Timeshift v2.0
 
+set -e
+# Any subsequent(*) commands which fail will cause the shell script to exit immediately
+
 # Regular Colours
 Red="\e[0;31m"          # Red
 Green="\e[0;32m"        # Green
