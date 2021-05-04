@@ -4,13 +4,14 @@
 #
 
 COL_NC="\e[0m"       # Text Reset
-Yellow="\e[0;33m"       # Yellow
+Yellow="\e[0;33m"    # Yellow
 
 clear
 printf -- "${Yellow}Uninstalling Timeshift scripts${COL_NC}\n";
 
 #install directory
 installdir="/usr/script"
+ppaneldir="/var/etc/ppanels"
 
 xmltvfilename="dddddd"
 url=$(grep -o 'url=".*$' ${installdir}/timeshift.sh | cut -c6- | cut -f 1 -d '"')
@@ -28,6 +29,7 @@ crontab -l | grep -v "15 08 * * * /bin/sh /usr/script/timeshift.sh" | crontab -
 
 # Removing script
 rm ${installdir}/timeshift.sh
+rm ${ppaneldir}/timeshift.xml
 
 printf -- "\n${TICK} Scripts and crontab successfully uninstalled and source file restored\n";
 rm ${installdir}/uninstall.sh
