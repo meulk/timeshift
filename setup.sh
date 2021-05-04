@@ -34,6 +34,7 @@ printf -- "\nStarting new installation \n\n";
 workdir="/media/usb/epg"
 epgimport="/etc/epgimport"
 installdir="/usr/script"
+ppaneldir="/var/etc/ppanels"
 
 #Create directories if they don't exist
 if [ ! -d "${workdir}" ]; then
@@ -46,6 +47,9 @@ fi
 
 if [ ! -d "${installdir}" ]; then
   mkdir -p "${installdir}" 
+fi
+if [ ! -d "${ppaneldir}" ]; then
+  mkdir -p "${ppaneldir}" 
 fi
 
 printf -- "This script will fix EPG offset issue for IPTV i.e. if your EPG is ahead or behind and showing wrong program information.\n\n";
@@ -95,6 +99,9 @@ wget -O ${installdir}/uninstall.sh "https://raw.githubusercontent.com/meulk/time
 sed -i "s|dddddd|$xmltvfilename|; s|ssssss|$source|" "${installdir}/uninstall.sh"
 chmod 755 ${installdir}/uninstall.sh
 
+printf -- "\n${TICK} Downloading ${Green}timeshift.xml${COL_NC} from Github\n\n";
+wget -O ${ppaneldir}/timeshift.xml "https://raw.githubusercontent.com/meulk/timeshift/main/timeshift.xml"
+
 #stop cron error
 touch /etc/cron/crontabs/root
 #Add cronjob to run script at 8:15am
@@ -123,11 +130,3 @@ fi
 rm /tmp/setup.sh
 printf -- "\n";
 exit 0;
-
-
-
-
-
-
-
-
