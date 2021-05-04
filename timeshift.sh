@@ -26,7 +26,6 @@ OFFSET=$(TZ=Europe/Berlin date +%z)
 
 xmltvfilename="dddddd"
 url="&"
-#time="tttttt"
 time=$OFFSET
 source="ssssss"
 
