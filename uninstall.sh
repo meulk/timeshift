@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Uninstall xmltv Timeshift v2.0
+# Uninstall Timeshift v2.0
 #
 
 COL_NC="\e[0m"       # Text Reset
@@ -27,7 +27,7 @@ sed -i "s|\\&|$url|" $source
 # Removing Cron
 crontab -l | grep -v "15 08 * * * /bin/sh /usr/script/timeshift.sh" | crontab -
 
-# Removing script
+# Removing scripts
 rm ${installdir}/timeshift.sh
 rm ${ppaneldir}/timeshift.xml
 
