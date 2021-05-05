@@ -34,6 +34,7 @@ source="ssssss"
 if [ ! -f "$xmltvfilename" ]; then
     printf -- "\n${TICK} Downloading new EPG data...${COL_NC}\n\n";
     wget -O ${xmltvfilename} "${url}"
+    printf -- "\n${TICK}${Green} Download Complete.\n\n";
 fi
 
 HHMMnew=$(head -n 1 ${xmltvfilename} | grep -o 'start=".*$' | cut -c 23-27 | cut -f 1 -d '"')
