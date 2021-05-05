@@ -26,10 +26,8 @@ CROSS="[${Red}✗${COL_NC}]"
 #Return time offset between UTC and the EPG creator which is based in Germany I'm guessing
 #Currently returns +0200 during BST
 OFFSET=$(TZ=Europe/Berlin date +%z)
-
 xmltvfilename="dddddd"
 url="&"
-time=$OFFSET
 source="ssssss"
 
 #Check on first run if XML file exists. It will be gzipped after this so wont exist on second run.
@@ -57,7 +55,7 @@ sed -i "s|$url|$xmltvfilename.gz|g" $source
 clock1=$(date '+%H:%M:%S:')
 
 printf -- "\n\n${TICK} $clock1 ${Green}All done!${COL_NC}\n";
-printf -- "\nTime in EPG XML file has been changed to ${Green}$time${COL_NC}\n\n";
+printf -- "\nTime in EPG XML file has been changed to ${Green}$OFFSET${COL_NC}\n\n";
 printf -- "\nGo to EPG importer, Look for option named 'Clearing current EPG before import' and turn it to yes and Import EPG manually by pressing yellow button.\n\n"
 exit 0;
 fi
