@@ -56,7 +56,7 @@ if [ ! -d "${ppaneldir}" ]; then
   mkdir -p "${ppaneldir}" 
 fi
 
-printf -- "This script will fix EPG offset issue for IPTV i.e. if your EPG is ahead or behind and showing wrong program information.\n\n";
+printf -- "This script will correct any EPG offset issues for IPTV i.e. if your EPG is ahead or behind and showing wrong program information.\n\n";
 sleep 2
 
 count=$(ls -d ${epgimport}/*jmx.*.sources.xml* | wc -l)
@@ -113,10 +113,9 @@ crontab -l | { cat; echo "15 08 * * * /bin/sh /usr/script/timeshift.sh"; } | cro
 printf -- "\n${TICK} Daily cron added to run script daily at 08:15am\n\n";
 sleep 2
 
-#testing bits download xml file here once
+#Download latest XML EPG file
 printf -- "\n${TICK} Downloading EPG data...${COL_NC}\n\n";
 wget -O ${xmltvfilename} "${url}"
-#printf -- "\n";
 
 #Check only the first line instead of the whole file
 HHMM=$(head -n 1 ${xmltvfilename} | grep -o 'start=".*$' | cut -c 23-27 | cut -f 1 -d '"')
