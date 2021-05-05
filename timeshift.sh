@@ -41,8 +41,8 @@ fi
 HHMMnew=$(head -n 1 ${xmltvfilename} | grep -o 'start=".*$' | cut -c 23-27 | cut -f 1 -d '"')
 printf -- "${COL_NC}\n\nXML HHMM is currently set to ${Red}$HHMMnew${COL_NC}\n";
 
-if [ "$HHMMnew" = "$time" ]; then
-   printf -- "\n${COL_NC}${TICK} Time already set to $time nothing to do.\n\n"
+if [ "$HHMMnew" = "$OFFSET" ]; then
+   printf -- "\n${COL_NC}${TICK} Time already set to $OFFSET nothing to do.\n\n"
 exit 0;
   
 else
@@ -51,7 +51,7 @@ printf -- "\n${CROSS} EPG Time set incorrectly${COL_NC}\n\n";
 clock=$(date '+%H:%M:%S:')
 printf -- "\n$clock ${Cyan}${Blink}CORRECTING TIME. PLEASE WAIT, IT COULD TAKE BETWEEN 10-50 MINUTES SO BE PATIENT...${COL_NC}\n"
 
-sed -i "/+0000/ s//$time/g" ${xmltvfilename}
+sed -i "/+0000/ s//$OFFSET/g" ${xmltvfilename}
 gzip -f  ${xmltvfilename} > ${xmltvfilename}.gz
 sed -i "s|$url|$xmltvfilename.gz|g" $source
 clock1=$(date '+%H:%M:%S:')
