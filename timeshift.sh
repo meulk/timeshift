@@ -45,7 +45,6 @@ exit 0;
   
 else
 printf -- "\n${CROSS} EPG Time set incorrectly${COL_NC}\n\n";
-
 clock=$(date '+%H:%M:%S:')
 printf -- "\n$clock ${Cyan}${Blink}CORRECTING TIME. PLEASE WAIT, IT COULD TAKE BETWEEN 10-50 MINUTES SO BE PATIENT...${COL_NC}\n"
 
@@ -55,8 +54,8 @@ sed -i "s|$url|$xmltvfilename.gz|g" $source
 clock1=$(date '+%H:%M:%S:')
 
 printf -- "\n\n${TICK} $clock1 ${Green}All done!${COL_NC}\n";
-printf -- "\nTime in EPG XML file has been changed to ${Green}$OFFSET${COL_NC}\n\n";
-printf -- "\nGo to EPG importer, Look for option named 'Clearing current EPG before import' and turn it to yes and Import EPG manually by pressing the ${Yellow}yellow${COL_NC} button.\n\n"
+printf -- "\nTime in EPG XML file has now been changed to ${Green}$OFFSET${COL_NC}\n\n";
+printf -- "\nGo to EPG importer, Look for option named 'Clearing current EPG before import' and turn it to yes and Import EPG manually by pressing the ${Yellow}YELLOW${COL_NC} button.\n\n"
 exit 0;
 fi
 
