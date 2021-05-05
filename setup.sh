@@ -97,14 +97,17 @@ wget -O ${installdir}/timeshift.sh "https://raw.githubusercontent.com/meulk/time
 sed -i "s|\\&|$url|" "${installdir}/timeshift.sh"
 sed -i "s|dddddd|$xmltvfilename|; s|ssssss|$source|" "${installdir}/timeshift.sh"
 chmod 755 ${installdir}/timeshift.sh
+printf -- "\n${TICK}${Green} Download Complete.\n\n";
 
 printf -- "\n${TICK} Downloading ${Green}uninstall.sh${COL_NC} from Github\n\n";
 wget -O ${installdir}/uninstall.sh "https://raw.githubusercontent.com/meulk/timeshift/main/uninstall.sh"
 sed -i "s|dddddd|$xmltvfilename|; s|ssssss|$source|" "${installdir}/uninstall.sh"
 chmod 755 ${installdir}/uninstall.sh
+printf -- "\n${TICK}${Green} Download Complete.\n\n";
 
 printf -- "\n${TICK} Downloading ${Green}timeshift.xml${COL_NC} from Github\n\n";
 wget -O ${ppaneldir}/timeshift.xml "https://raw.githubusercontent.com/meulk/timeshift/main/timeshift.xml"
+printf -- "\n${TICK}${Green} Download Complete.\n\n";
 
 #stop cron error
 touch /etc/cron/crontabs/root
@@ -116,6 +119,7 @@ sleep 2
 #Download latest XML EPG file
 printf -- "\n${TICK} Downloading EPG data...${COL_NC}\n\n";
 wget -O ${xmltvfilename} "${url}"
+printf -- "\n${TICK}${Green} Download Complete.\n\n";
 
 #Check only the first line instead of the whole file
 HHMM=$(head -n 1 ${xmltvfilename} | grep -o 'start=".*$' | cut -c 23-27 | cut -f 1 -d '"')
