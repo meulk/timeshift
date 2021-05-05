@@ -56,7 +56,7 @@ clock1=$(date '+%H:%M:%S:')
 
 printf -- "\n\n${TICK} $clock1 ${Green}All done!${COL_NC}\n";
 printf -- "\nTime in EPG XML file has been changed to ${Green}$OFFSET${COL_NC}\n\n";
-printf -- "\nGo to EPG importer, Look for option named 'Clearing current EPG before import' and turn it to yes and Import EPG manually by pressing yellow button.\n\n"
+printf -- "\nGo to EPG importer, Look for option named 'Clearing current EPG before import' and turn it to yes and Import EPG manually by pressing the ${Yellow}yellow${COL_NC} button.\n\n"
 exit 0;
 fi
 
