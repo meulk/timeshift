@@ -1,6 +1,7 @@
 <directory name="Timeshift">
 <execute name="Run Timeshift script"
-         target="sh /usr/script/timeshift.sh"
+         target="/usr/script/timeshift.sh"
 	 helptext="Corrects IPTV EPG times."
+	 dontCheck="true"
 	 quit="exit"/>
 </directory>
