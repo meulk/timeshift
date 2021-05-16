@@ -2,6 +2,5 @@
 <execute name="Run Timeshift script"
          target="/usr/script/timeshift.sh"
 	 helptext="Corrects IPTV EPG times."
-	 dontCheck="true"
-	 quit="exit"/>
+	 runBeforeOut="echo Please wait... script will run in the next few minutes..."/>
 </directory>
