@@ -30,7 +30,7 @@ xmltvfilename="dddddd"
 url="&"
 source="ssssss"
 
-#Check on first run if XML file exists. It will be gzipped after this so wont exist on second run.
+#Check on first run if XML file exists. It will be gzipped after this so won't exist on second run.
 if [ ! -f "$xmltvfilename" ]; then
     printf -- "\n${TICK} Downloading new EPG data...${COL_NC}\n\n";
     wget -O ${xmltvfilename} "${url}"
