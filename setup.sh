@@ -85,7 +85,8 @@ sleep 1
 
 source="${epgimport}/$filename"
 # get url from source file
-url=$(grep -o 'http.*$' ${source} | cut -f 1 -d ']')
+#url=$(grep -o 'http.*$' ${source} | cut -f 1 -d ']')
+url=$(grep -o "<url><\!\[\CDATA.*$" ${source} | cut -c 15- | cut -f 1 -d ']')
 #get name from source file, remove illegal file characters with underscore and make lower case
 name=$(grep -o 'catname=.*$' ${source} | cut -c10- | cut -f 1 -d '"' | \
 sed -e 's|<|_|g; s|>|_|g; s|:|_|g; s|"|_|g; s|/|_|g; s|\\|_|g; s/|/_/g; s|?|_|g; s|*|_|g; s| |_|g')
