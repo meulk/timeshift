@@ -131,9 +131,8 @@ if [ "$HHMM" = "+0000" ]; then
    sh ${installdir}/timeshift.sh
 
 else
-printf -- "\n${CROSS} ERROR: Script has been installed though it won't work until you follow one more step manually. Please make a note of following text\n";
-printf -- "\nMy xml HHMM is: $HHMM and I want to adjust it by: $time\n";
-printf -- "\nPlease follow the additional step mentioned in original post\n";
+printf -- "\n${CROSS} ERROR: Script has been installed though time is currently set to something other than +0000\n";
+printf -- "\nMy xml HHMM is: $HHMM and I want to adjust it by: $OFFSET\n";
 fi
 rm /tmp/setup.sh
 printf -- "\n";
