@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Fix EPG times
+# Corrects IPTV EPG times on OpenPLi 8.1
 # Timeshift Setup v2.01
 
 set -e
