@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # Fix EPG times
-# Timeshift Setup v2.0
+# Timeshift Setup v2.01
 
 set -e
 # Any subsequent(*) commands which fail will cause the shell script to exit immediately
