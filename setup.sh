@@ -111,7 +111,10 @@ wget -O ${ppaneldir}/timeshift.xml "https://raw.githubusercontent.com/meulk/time
 printf -- "\n${TICK}${Green} Download Complete.\n\n";
 
 #stop cron error
-touch /etc/cron/crontabs/root
+#touch /etc/cron/crontabs/root
+mkdir -p /var/spool/cron/crontabs
+touch /var/spool/cron/crontabs/root
+
 #Add cronjob to run script at 8:15am
 crontab -l | { cat; echo "15 08 * * * /bin/sh /usr/script/timeshift.sh"; } | crontab -
 printf -- "\n${TICK} Daily cron added to run script daily at 08:15am\n\n";
