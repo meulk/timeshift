@@ -1,7 +1,7 @@
 #!/bin/sh
 #
-# Corrects IPTV EPG times on OpenPLi 8.1
 # Timeshift Setup v2.01
+# Corrects IPTV EPG times on OpenPLi 8.1
 
 set -e
 # Any subsequent(*) commands which fail will cause the shell script to exit immediately
