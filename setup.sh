@@ -37,7 +37,7 @@ printf -- "\nStarting new installation \n\n";
 workdir="/media/usb/epg"
 epgimport="/etc/epgimport"
 installdir="/usr/script"
-ppaneldir="/var/etc/ppanels"
+ppaneldir="/etc/enigma2/ppanels/"
 
 #Create directories if they don't exist
 if [ ! -d "${workdir}" ]; then
