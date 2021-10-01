@@ -30,7 +30,7 @@ CROSS="[${Red}✗${COL_NC}]"
 OFFSET=$(TZ=Europe/Berlin date +%z)
 
 clear
-printf -- "${Yellow}EPG Timeshift v2.0 ${COL_NC}\n";
+printf -- "${Yellow}EPG Timeshift v2.01 ${COL_NC}\n";
 printf -- "\nStarting new installation \n\n";
 
 #point it to the USB stick instead of the HDD
