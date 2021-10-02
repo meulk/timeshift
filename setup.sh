@@ -31,7 +31,7 @@ OFFSET=$(TZ=Europe/Berlin date +%z)
 
 clear
 printf -- "${Yellow}EPG Timeshift v2.01 ${COL_NC}\n";
-printf -- "\nStarting new installation \n\n";
+
 
 #point it to the USB stick instead of the HDD
 workdir="/media/usb/epg"
@@ -39,6 +39,23 @@ epgimport="/etc/epgimport"
 installdir="/usr/script"
 #ppaneldir="/var/etc/ppanels"
 ppaneldir="/etc/enigma2/ppanels/"
+
+printf -- "\nUninstalling previous version of this script \n\n";
+sleep 2
+# Remove old script data
+rm ${epgimport}/new.EPG.sources.xml
+rm ${workdir}/iptvepg.xml.gz
+
+# Removing Previous Cronjob
+cron=$(crontab -l | grep -F "15 08 * * * /bin/sh /usr/script/timeshift.sh " | wc -m)
+if [ $cron -eq "0" ]; then
+printf -- "\n${CROSS} No cronjob found\n\n";
+else
+crontab -l | grep -v "15 08 * * * /bin/sh /usr/script/timeshift.sh " | crontab -
+printf -- "\n${TICK} Old cronjob removed\n\n";
+fi
+sleep 1
+printf -- "\nStarting new installation \n\n";
 
 #Create directories if they don't exist
 if [ ! -d "${workdir}" ]; then
