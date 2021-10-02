@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Timeshift Setup v2.01
+# Timeshift Setup v2.02
 # Corrects IPTV EPG times on OpenPLi 8.1
 
 set -e
@@ -30,7 +30,7 @@ CROSS="[${Red}✗${COL_NC}]"
 OFFSET=$(TZ=Europe/Berlin date +%z)
 
 clear
-printf -- "${Yellow}EPG Timeshift v2.01 ${COL_NC}\n";
+printf -- "${Yellow}EPG Timeshift v2.02 ${COL_NC}\n";
 
 
 #point it to the USB stick instead of the HDD
@@ -134,7 +134,7 @@ printf -- "\n${TICK}${Green} Download Complete.\n\n";
 
 #Add cronjob to run script at 8:15am
 crontab -l | { cat; echo "15 08 * * * /bin/sh /usr/script/timeshift.sh"; } | crontab -
-printf -- "\n${TICK} Daily cron added to run script daily at 08:15am\n\n";
+printf -- "\n${TICK} Daily cronjob added to run script daily at 08:15am\n\n";
 sleep 2
 
 #Download latest XML EPG file
