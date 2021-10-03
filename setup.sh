@@ -43,8 +43,8 @@ ppaneldir="/var/etc/ppanels"
 printf -- "\nUninstalling previous version of this script \n\n";
 sleep 2
 # Remove old script data
-rm ${epgimport}/new.EPG.sources.xml
-rm ${workdir}/iptvepg.xml.gz
+#rm ${epgimport}/new.EPG.sources.xml
+#rm ${workdir}/iptvepg.xml.gz
 
 # Removing Previous Cronjob
 cron=$(crontab -l | grep -F "15 08 * * * /bin/sh /usr/script/timeshift.sh " | wc -m)
