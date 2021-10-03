@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Timeshift Setup v2.02
+# Timeshift Setup v2.03
 # Corrects IPTV EPG times on OpenPLi 8.1
 
 set -e
@@ -30,7 +30,7 @@ CROSS="[${Red}✗${COL_NC}]"
 OFFSET=$(TZ=Europe/Berlin date +%z)
 
 clear
-printf -- "${Yellow}EPG Timeshift v2.02 ${COL_NC}\n";
+printf -- "${Yellow}EPG Timeshift v2.03 ${COL_NC}\n";
 
 #point it to the USB stick instead of the HDD
 workdir="/media/usb/epg"
