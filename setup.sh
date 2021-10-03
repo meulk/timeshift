@@ -37,8 +37,8 @@ printf -- "${Yellow}EPG Timeshift v2.02 ${COL_NC}\n";
 workdir="/media/usb/epg"
 epgimport="/etc/epgimport"
 installdir="/usr/script"
-#ppaneldir="/var/etc/ppanels"
-ppaneldir="/etc/enigma2/ppanels/"
+ppaneldir="/var/etc/ppanels"
+#ppaneldir="/etc/enigma2/ppanels/"
 
 printf -- "\nUninstalling previous version of this script \n\n";
 sleep 2
