@@ -10,13 +10,10 @@ Red="\e[0;31m"          # Red
 Green="\e[0;32m"        # Green
 Yellow="\e[0;33m"       # Yellow
 Blue="\e[0;34m"         # Blue
-Purple="\e[0;35m"       # Purple
-Cyan="\e[0;36m"         # Cyan
 White="\e[0;37m"        # White
 
 Blink="\e[5m"           #Blinking
 Underlined="\e[4m"      #Underlined
-Reversed="\e[7m"        #Inverted
 
 COL_NC="\e[0m"       # Text Reset
 
