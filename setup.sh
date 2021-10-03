@@ -40,8 +40,8 @@ installdir="/usr/script"
 ppaneldir="/var/etc/ppanels"
 #ppaneldir="/etc/enigma2/ppanels/"
 
-printf -- "\nUninstalling previous version of this script \n\n";
-sleep 2
+#printf -- "\nUninstalling previous version of this script \n\n";
+#sleep 2
 # Remove old script data
 #rm ${epgimport}/new.EPG.sources.xml
 #rm ${workdir}/iptvepg.xml.gz
