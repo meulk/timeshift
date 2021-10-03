@@ -32,21 +32,14 @@ OFFSET=$(TZ=Europe/Berlin date +%z)
 clear
 printf -- "${Yellow}EPG Timeshift v2.02 ${COL_NC}\n";
 
-
 #point it to the USB stick instead of the HDD
 workdir="/media/usb/epg"
 epgimport="/etc/epgimport"
 installdir="/usr/script"
 ppaneldir="/var/etc/ppanels"
-#ppaneldir="/etc/enigma2/ppanels/"
 
-#printf -- "\nUninstalling previous version of this script \n\n";
-#sleep 2
-# Remove old script data
-#rm ${epgimport}/new.EPG.sources.xml
-#rm ${workdir}/iptvepg.xml.gz
-
-# Removing Previous Cronjob
+printf -- "\nUninstalling previous version cronjob \n\n";
+sleep 2
 cron=$(crontab -l | grep -F "15 08 * * * /bin/sh /usr/script/timeshift.sh " | wc -m)
 if [ $cron -eq "0" ]; then
 printf -- "\n${CROSS} No cronjob found\n\n";
@@ -126,11 +119,6 @@ printf -- "\n${TICK}${Green} Download Complete.\n\n";
 printf -- "\n${TICK} Downloading ${Green}timeshift.xml${COL_NC} from Github\n\n";
 wget -O ${ppaneldir}/timeshift.xml "https://raw.githubusercontent.com/meulk/timeshift/main/timeshift.xml"
 printf -- "\n${TICK}${Green} Download Complete.\n\n";
-
-#stop cron error
-#touch /etc/cron/crontabs/root
-#mkdir -p /var/spool/cron/crontabs
-#touch /var/spool/cron/crontabs/root
 
 #Add cronjob to run script at 8:15am
 crontab -l | { cat; echo "15 08 * * * /bin/sh /usr/script/timeshift.sh"; } | crontab -
