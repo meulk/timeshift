@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Timeshift v2.0
+# Timeshift v2.03
 
 set -e
 # Any subsequent(*) commands which fail will cause the shell script to exit immediately
