@@ -51,6 +51,9 @@ gzip -f  ${xmltvfilename} > ${xmltvfilename}.gz
 sed -i "s|$url|$xmltvfilename.gz|g" $source
 clock1=$(date '+%H:%M:%S:')
 
+#log when script has last run to confirm cron is working
+date > ${installdir}/lastrun.txt
+
 printf -- "\n\n${TICK} $clock1 ${Green}All done!${COL_NC}\n";
 printf -- "\nTime in EPG XML file has now been changed to ${Green}$OFFSET${COL_NC}\n\n";
 printf -- "\nGo to EPG importer, Look for option named 'Clearing current EPG before import' and turn it to yes and Import EPG manually by pressing the ${Yellow}YELLOW${COL_NC} button.\n\n"
