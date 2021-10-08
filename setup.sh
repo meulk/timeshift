@@ -66,6 +66,9 @@ if [ ! -d "${ppaneldir}" ]; then
   mkdir -p "${ppaneldir}" 
 fi
 
+#create file to log last run time
+touch ${installdir}/lastrun.txt
+
 printf -- "This script will correct any EPG offset issues for IPTV i.e. if your EPG is ahead or behind and showing wrong program information.\n\n";
 sleep 2
 
