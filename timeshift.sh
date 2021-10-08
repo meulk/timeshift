@@ -27,6 +27,9 @@ xmltvfilename="dddddd"
 url="&"
 source="ssssss"
 
+#log when script has last run to confirm cron is working
+date > ~/lastrun.log
+
 #Check on first run if XML file exists. It will be gzipped after this so won't exist on second run.
 if [ ! -f "$xmltvfilename" ]; then
     printf -- "\n${TICK} Downloading new EPG data...${COL_NC}\n\n";
@@ -50,9 +53,6 @@ sed -i "/+0000/ s//$OFFSET/g" ${xmltvfilename}
 gzip -f  ${xmltvfilename} > ${xmltvfilename}.gz
 sed -i "s|$url|$xmltvfilename.gz|g" $source
 clock1=$(date '+%H:%M:%S:')
-
-#log when script has last run to confirm cron is working
-date > ${installdir}/lastrun.log
 
 printf -- "\n\n${TICK} $clock1 ${Green}All done!${COL_NC}\n";
 printf -- "\nTime in EPG XML file has now been changed to ${Green}$OFFSET${COL_NC}\n\n";
