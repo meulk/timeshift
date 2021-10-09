@@ -121,7 +121,7 @@ wget -O ${ppaneldir}/timeshift.xml "https://raw.githubusercontent.com/meulk/time
 printf -- "\n${TICK}${Green} Download Complete.\n\n";
 
 #Add cronjob to run script at 8:15am
-touch /etc/cron/crontabs/root
+#touch /etc/cron/crontabs/root
 crontab -l | { cat; echo "15 08 * * * /bin/sh /usr/script/timeshift.sh "; } | crontab -
 printf -- "\n${TICK} Daily cronjob added to run script daily at 08:15am\n\n";
 sleep 2
