@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Uninstall Timeshift v2.0
+# Uninstall Timeshift v2.03
 #
 
 COL_NC="\e[0m"       # Text Reset
