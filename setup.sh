@@ -25,7 +25,7 @@ COL_NC="\e[0m"       # Text Reset
 TICK="[${Green}✓${COL_NC}]"
 CROSS="[${Red}✗${COL_NC}]"
 
-#Return time offset between UTC and the EPG creator which is based in Germany I'm guessing
+#Return time offset between UTC and the EPG creator which is based in central Europe I'm guessing
 #Currently returns +0200 during BST
 OFFSET=$(TZ=Europe/Berlin date +%z)
 
@@ -37,6 +37,7 @@ workdir="/media/usb/epg"
 epgimport="/etc/epgimport"
 installdir="/usr/script"
 ppaneldir="/var/etc/ppanels"
+MY_MAIN_URL="https://raw.githubusercontent.com/meulk/timeshift/main/"
 
 printf -- "\nUninstalling previous version cronjob \n\n";
 sleep 2
@@ -95,7 +96,6 @@ sleep 1
 
 source="${epgimport}/$filename"
 # get url from source file
-#url=$(grep -o 'http.*$' ${source} | cut -f 1 -d ']')
 url=$(grep -o "<url><\!\[\CDATA.*$" ${source} | cut -c 15- | cut -f 1 -d ']')
 #get name from source file, remove illegal file characters with underscore and make lower case
 name=$(grep -o 'catname=.*$' ${source} | cut -c10- | cut -f 1 -d '"' | \
@@ -121,7 +121,6 @@ wget -O ${ppaneldir}/timeshift.xml "https://raw.githubusercontent.com/meulk/time
 printf -- "\n${TICK}${Green} Download Complete.\n\n";
 
 #Add cronjob to run script at 8:15am
-#touch /etc/cron/crontabs/root
 crontab -l | { cat; echo "15 08 * * * /bin/sh /usr/script/timeshift.sh "; } | crontab -
 printf -- "\n${TICK} Daily cronjob added to run script daily at 08:15am\n\n";
 sleep 2
