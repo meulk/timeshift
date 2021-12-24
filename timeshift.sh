@@ -15,10 +15,11 @@ White="\e[0;37m"        # White
 Blink="\e[5m"           #Blinking
 Underlined="\e[4m"      #Underlined
 
-COL_NC="\e[0m"       # Text Reset
+COL_NC="\e[0m"       # Text reset no colour
 
 TICK="[${Green}✓${COL_NC}]"
 CROSS="[${Red}✗${COL_NC}]"
+INFO="[i]"
 
 #Return time offset between UTC and the EPG creator which is based in Germany I'm guessing
 #Currently returns +0200 during BST
@@ -32,7 +33,7 @@ date > ~/lastrun.log
 
 #Check on first run if XML file exists. It will be gzipped after this so won't exist on second run.
 if [ ! -f "$xmltvfilename" ]; then
-    printf -- "\n${TICK} Downloading new EPG data...${COL_NC}\n\n";
+    printf -- "\n${INFO} Downloading new EPG data...${COL_NC}\n\n";
     wget -O ${xmltvfilename} "${url}"
     printf -- "\n${TICK}${Green} Download Complete.\n\n";
 fi
