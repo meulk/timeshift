@@ -5,6 +5,9 @@
 
 COL_NC="\e[0m"       # Text Reset
 Yellow="\e[0;33m"    # Yellow
+TICK="[${Green}✓${COL_NC}]"
+CROSS="[${Red}✗${COL_NC}]"
+INFO="[i]"
 
 clear
 printf -- "${Yellow}Uninstalling Timeshift scripts${COL_NC}\n";
