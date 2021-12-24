@@ -24,6 +24,7 @@ COL_NC="\e[0m"       # Text Reset
 
 TICK="[${Green}✓${COL_NC}]"
 CROSS="[${Red}✗${COL_NC}]"
+INFO="[i]"
 
 #Return time offset between UTC and the EPG creator which is based in central Europe I'm guessing
 #Currently returns +0200 during BST
@@ -103,20 +104,20 @@ sed -e 's|<|_|g; s|>|_|g; s|:|_|g; s|"|_|g; s|/|_|g; s|\\|_|g; s/|/_/g; s|?|_|g;
 
 xmltvfilename="${workdir}/${name}.xml"
 
-printf -- "\n${TICK} Downloading ${Green}timeshift.sh${COL_NC} from Github\n\n";
+printf -- "\n${INFO} Downloading ${Green}timeshift.sh${COL_NC} from Github\n\n";
 wget -O ${installdir}/timeshift.sh "https://raw.githubusercontent.com/meulk/timeshift/main/timeshift.sh"
 sed -i "s|\\&|$url|" "${installdir}/timeshift.sh"
 sed -i "s|dddddd|$xmltvfilename|; s|ssssss|$source|" "${installdir}/timeshift.sh"
 chmod 755 ${installdir}/timeshift.sh
 printf -- "\n${TICK}${Green} Download Complete.\n\n";
 
-printf -- "\n${TICK} Downloading ${Green}uninstall.sh${COL_NC} from Github\n\n";
+printf -- "\n${INFO} Downloading ${Green}uninstall.sh${COL_NC} from Github\n\n";
 wget -O ${installdir}/uninstall.sh "https://raw.githubusercontent.com/meulk/timeshift/main/uninstall.sh"
 sed -i "s|dddddd|$xmltvfilename|; s|ssssss|$source|" "${installdir}/uninstall.sh"
 chmod 755 ${installdir}/uninstall.sh
 printf -- "\n${TICK}${Green} Download Complete.\n\n";
 
-printf -- "\n${TICK} Downloading ${Green}timeshift.xml${COL_NC} from Github\n\n";
+printf -- "\n${INFO} Downloading ${Green}timeshift.xml${COL_NC} from Github\n\n";
 wget -O ${ppaneldir}/timeshift.xml "https://raw.githubusercontent.com/meulk/timeshift/main/timeshift.xml"
 printf -- "\n${TICK}${Green} Download Complete.\n\n";
 
@@ -126,7 +127,7 @@ printf -- "\n${TICK} Daily cronjob added to run script daily at 08:15am\n\n";
 sleep 2
 
 #Download latest XML EPG file
-printf -- "\n${TICK} Downloading EPG data...${COL_NC}\n\n";
+printf -- "\n${INFO} Downloading EPG data...${COL_NC}\n\n";
 wget -O ${xmltvfilename} "${url}"
 printf -- "\n${TICK}${Green} Download Complete.\n\n";
 
