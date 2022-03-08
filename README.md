@@ -7,7 +7,7 @@ Tested to work on OpenPLI 8.1
 Run the following command to download the script:
 
 ```
-wget -O /tmp/setup.sh "https://raw.githubusercontent.com/meulk/timeshift/main/setup.sh" && chmod +x /tmp/setup.sh
+wget -O /tmp/setup.sh "https://raw.githubusercontent.com/meulk/timeshift/main/setup.sh" && chmod 755 /tmp/setup.sh
 cd /tmp
 sudo ./setup.sh
 ```
