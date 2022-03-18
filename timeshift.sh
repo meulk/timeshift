@@ -3,7 +3,6 @@
 # Timeshift v2.03
 
 set -e
-# Any subsequent(*) commands which fail will cause the shell script to exit immediately
 
 # Regular Colours
 Red="\e[0;31m"          # Red
@@ -11,9 +10,6 @@ Green="\e[0;32m"        # Green
 Yellow="\e[0;33m"       # Yellow
 Blue="\e[0;34m"         # Blue
 White="\e[0;37m"        # White
-
-Blink="\e[5m"           #Blinking
-Underlined="\e[4m"      #Underlined
 
 COL_NC="\e[0m"       # Text reset no colour
 
