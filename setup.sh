@@ -4,7 +4,6 @@
 # Corrects IPTV EPG times on OpenPLi 8.1
 
 set -e
-# Any subsequent(*) commands which fail will cause the shell script to exit immediately
 
 # Regular Colours
 Red="\e[0;31m"          # Red
@@ -14,10 +13,6 @@ Blue="\e[0;34m"         # Blue
 Purple="\e[0;35m"       # Purple
 Cyan="\e[0;36m"         # Cyan
 White="\e[0;37m"        # White
-
-Blink="\e[5m"           #Blinking
-Underlined="\e[4m"      #Underlined
-Reversed="\e[7m"        #Inverted
 
 ## Reset
 COL_NC="\e[0m"       # Text Reset
