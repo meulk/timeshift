@@ -44,7 +44,7 @@ exit 0;
 else
 printf -- "\n${CROSS} EPG Time set incorrectly${COL_NC}\n\n";
 clock=$(date '+%H:%M:%S:')
-printf -- "\n$clock ${Green}${Blink}CORRECTING TIME. PLEASE WAIT, IT COULD TAKE BETWEEN 10-50 MINUTES SO BE PATIENT...${COL_NC}\n"
+printf -- "\n$clock ${Green}${Blink}CORRECTING TIME. PLEASE WAIT, IT COULD TAKE 10 MINUTES SO BE PATIENT...${COL_NC}\n"
 
 sed -i "/+0000/ s//$OFFSET/g" ${xmltvfilename}
 gzip -f  ${xmltvfilename} > ${xmltvfilename}.gz
