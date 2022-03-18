@@ -21,7 +21,7 @@ TICK="[${Green}✓${COL_NC}]"
 CROSS="[${Red}✗${COL_NC}]"
 INFO="[i]"
 
-#Return time offset between UTC and the EPG creator which is based in Germany I'm guessing
+#Return time offset between UTC and the EPG creator which is based in central Europe I'm guessing
 #Currently returns +0200 during BST
 OFFSET=$(TZ=Europe/Berlin date +%z)
 xmltvfilename="dddddd"
