@@ -1,7 +1,7 @@
 # Timeshift
 Script to correct EPG times for IPTV channels
 
-Tested to work on OpenPLI 8.1
+Tested to work on OpenPLI 8.2
 
 ## How to run
 Run the following command to download the script:
