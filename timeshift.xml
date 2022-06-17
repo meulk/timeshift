@@ -1,6 +1,6 @@
 <directory name="Timeshift 2.03">
         <comment name="--=| Correct IPTV EPG times  |=--"/>
         <separator/>
-        <execute name="Run Timeshift script" target="sh /usr/script/timeshift.sh" helptext="Corrects the EPG time" runAfterOut="echo Job Complete"/>
+        <execute name="Run Timeshift script" target="sh /usr/script/timeshift.sh" helptext="Corrects the EPG time"/>
         <separator/>
 </directory>
